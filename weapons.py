@@ -5,8 +5,8 @@ from player import player
 weapons = {
     "stick": 1,
     "sword": 3,
-    "magic sword": 5
-}
+    "magic sword": 5,
+    "taco": 0}
 
 def find_weapon():
     weapon = random.choice(list(weapons.keys()))
