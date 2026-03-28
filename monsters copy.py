@@ -2,26 +2,12 @@ import random
 from commands import register
 from weapons import weapons
 from player import player
-from beasts import Beast
 
-#monsters = {
-#    "goblin": 2,
-#    "troll": 4,
-#    "dragon": 6
-#}
-
-monsters = {    
-    "goblin": Beast("goblin", strength=2),
-    "troll": Beast("troll", strength=4),
-    "dragon": Beast("dragon", strength=6)
-
-
+monsters = {
+    "goblin": 2,
+    "troll": 4,
+    "dragon": 6
 }
-
-
-
-
-
 
 def fight_monster():
 
@@ -30,22 +16,16 @@ def fight_monster():
         return
 
     monster = random.choice(list(monsters.keys()))
-    print(monster)
 
-    monster_strength = monsters[monster].strength 
-    monster_name = monsters[monster].name
+    monster_strength = monsters[monster]
     weapon_strength = weapons[player.weapon]
 
-    print(f"A wild {monster_name} appears!")
+    print(f"A wild {monster} appears!")
     print(f"You attack with your {player.weapon}")
 
     if weapon_strength >= monster_strength:
         print("You defeated the monster!")
     else:
         print("The monster was too strong... you lost!")
-        player.reduceHealth(10*monster_strength)
-        print(player.health)
-        print(player.statusAlive)
-
 
 register("fight", fight_monster)
